@@ -7,7 +7,9 @@ Import-Module .\MyPathAliases.dll
 ```
 
 ## Set env variable
+```
 $env:PATH_ALIAS_JSON_PATH = "C:\projects\MyPathAliases\path-aliases.json"
+```
 
 ## Use examples
 ```
