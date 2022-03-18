@@ -8,6 +8,9 @@ Import-Module .\MyPathAliases.dll
 
 ## Use examples
 ```
+Get-PathAlias "desktop"
+Get-PathAlias -PrintAll
+
 Get-PathAlias -AliasesJsonPath "C:\projects\MyPathAliases\path-aliases.json" -PrintAll
 Get-PathAlias -AliasesJsonPath "C:\projects\MyPathAliases\path-aliases.json" -Alias "projects"
 Get-PathAlias "projects" -AliasesJsonPath "C:\projects\MyPathAliases\path-aliases.json"
