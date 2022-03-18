@@ -44,10 +44,17 @@ namespace MyPathAliases
 
         protected override void ProcessRecord()
         {
+            if (string.IsNullOrEmpty(jsonPath))
+            {
+                WriteObject("Please provide json path by AliasesJsonPath parameter or PATH_ALIAS_JSON_PATH env variable");
+                return;
+            }
+
             try
             {
                 pathAliasManager.ParseJsonFile(jsonPath);
-            } catch(FileNotFoundException e)
+            }
+            catch(FileNotFoundException e)
             {
                 WriteObject(e.Message);
                 return;
@@ -58,7 +65,8 @@ namespace MyPathAliases
                 WriteObject("You must provide at least one of parapeters: Alias, PrintAll");
                 return;
             } 
-            else {
+            else
+            {
                 if (printAll)
                 {
                     WriteObject(pathAliasManager.GetAllPathAliases());
