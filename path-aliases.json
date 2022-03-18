@@ -1,0 +1,16 @@
+{
+  "aliases": [
+    {
+      "alias": "desktop",
+      "path": "C:\\Users\\strag\\Desktop"
+    },
+    {
+      "alias": "projects",
+      "path": "C:\\projects"
+    },
+    {
+      "alias": "bootybay",
+      "path": "C:\\bootybay"
+    }
+  ]
+}
