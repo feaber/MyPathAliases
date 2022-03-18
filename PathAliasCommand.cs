@@ -1,6 +1,6 @@
 ﻿using System.Management.Automation;
 using System.IO;
-
+using System;
 
 namespace MyPathAliases
 {
@@ -21,7 +21,7 @@ namespace MyPathAliases
             get { return jsonPath; }
             set { jsonPath = value; }
         }
-        private string jsonPath = "path-aliases.json";
+        private string jsonPath;
 
         [Parameter(Mandatory = false)]
         public SwitchParameter PrintAll
@@ -36,6 +36,10 @@ namespace MyPathAliases
         protected override void BeginProcessing()
         {
             pathAliasManager = new PathAliasManager();
+            if (string.IsNullOrEmpty(jsonPath))
+            {
+                jsonPath = Environment.GetEnvironmentVariable("PATH_ALIAS_JSON_PATH");
+            }
         }
 
         protected override void ProcessRecord()
